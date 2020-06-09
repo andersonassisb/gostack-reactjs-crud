@@ -51,6 +51,8 @@ const Dashboard: React.FC = () => {
   ): Promise<void> {
     const updateFood = foods.filter(f => f.name === food.name);
     await api.patch(`/foods/${updateFood[0].id}`, {
+      id: updateFood[0].id,
+      available: updateFood[0].available,
       name: food.name,
       image: food.image,
       price: food.price,
